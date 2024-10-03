@@ -1,0 +1,7 @@
+{
+  "name": "Expenser",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "vue-vite"
+}
