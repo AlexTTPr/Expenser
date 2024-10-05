@@ -33,6 +33,9 @@ import '@ionic/vue/css/palettes/dark.system.css';
 
 import { createI18n } from 'vue-i18n'
 
+import PrimeVue from 'primevue/config';
+import Aura from '@primevue/themes/aura';
+
 /* Theme variables */
 import './theme/variables.css';
 
@@ -43,7 +46,12 @@ const i18n = createI18n({
 const app = createApp(App)
   .use(IonicVue)
   .use(router)
-  .use(i18n);
+  .use(i18n)
+  .use(PrimeVue, {
+    theme: {
+        preset: Aura
+    }
+});
 
 router.isReady().then(() => {
   app.mount('#app');
