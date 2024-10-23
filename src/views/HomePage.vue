@@ -2,7 +2,6 @@
 import { ref, onMounted, reactive } from 'vue';
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/vue';
 import DatePicker from 'primevue/datepicker';
-import Chart from 'primevue/chart';
 import BalanceChart from '@/components/charts/BalanceChart.vue';
 import BalanceInfo from '@/classes/BalanceInfo';
 import Button from 'primevue/button';
@@ -74,7 +73,7 @@ const setChartOptions = () => {
 
 const click = () => {
   if(Math.random() < 0.5)
-    values.push({date: new Date(), sum: Math.random() * 100})
+    values.push({date: new Date(), sum: Math.random()})
   else
     values.pop();
     console.log('clicked: ' + values[values.length - 1].date);
@@ -82,10 +81,19 @@ const click = () => {
 
 let values = reactive<BalanceInfo[]>([]);
 const currentDay = new Date().getTime();
-for(let i = 0; i < 30; i++){
-  values.push({date: new Date(currentDay - 1000*60*60*24*i), sum: Math.random() * 100 + i * 5})
+for(let i = 0; i < 12; i++){
+  values.push({date: new Date(currentDay + 1000*60*60*24*i), sum: Math.random()})
 }
-values.reverse();
+
+const chartData = [
+        { name: 'A', value: 30 },
+        { name: 'B', value: 80 },
+        { name: 'C', value: 45 },
+        { name: 'D', value: 60 },
+        { name: 'E', value: 20 },
+        { name: 'F', value: 90 },
+        { name: 'G', value: 55 }
+      ];
 
 </script>
 
@@ -95,14 +103,17 @@ values.reverse();
       <ion-title>Home Page</ion-title>
       <DatePicker v-model="time" id="datepicker-12h" showTime hourFormat="24" fluid />
 
-      <Button @click="click"/>
+      <Button @click="click" />
 
       <!--<div class="card">
         <Chart type="line" :data="chartData" :options="chartOptions"/>
       </div>-->
-      <BalanceChart :values="values"/>
+      <BalanceChart :BalanceInfos="values"/>
+
     </ion-content>
   </ion-page>
 </template>
 
-<style scoped></style>
+<style scoped>
+
+</style>
