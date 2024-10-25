@@ -13,10 +13,6 @@ import {
     home,
     pieChart
 } from 'ionicons/icons';
-
-const takePhoto = () => {
-    console.log('photo');
-}
 </script>
 
 <template>

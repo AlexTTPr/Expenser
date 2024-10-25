@@ -5,6 +5,7 @@ import DatePicker from 'primevue/datepicker';
 import BalanceChart from '@/components/charts/BalanceChart.vue';
 import BalanceInfo from '@/classes/BalanceInfo';
 import Button from 'primevue/button';
+import TransactionCard from '@/components/TransactionCard.vue';
 
 
 const time = ref();
@@ -110,6 +111,10 @@ const chartData = [
       </div>-->
       <BalanceChart :BalanceInfos="values"/>
 
+
+      <TransactionCard>
+        
+      </TransactionCard>
     </ion-content>
   </ion-page>
 </template>

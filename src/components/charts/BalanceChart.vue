@@ -1,12 +1,12 @@
 <template>
   <div>
-    <v-chart class="chart" :option="option" autoresize />
+    <v-chart class="w-full aspect-[3/2]" :option="option" autoresize/>
   </div>
 </template>
 
 <script setup lang="ts">
 import VChart from "vue-echarts";
-import { nextTick, onMounted, reactive, ref, watch } from "vue";
+import { ref, watch } from "vue";
 import * as echarts from "echarts/core";
 import { GridComponent } from "echarts/components";
 import { LineChart } from "echarts/charts";
@@ -28,9 +28,6 @@ echarts.use([
   UniversalTransition,
   TooltipComponent,
 ]);
-
-console.log(props.BalanceInfos.map((val) => val.date));
-console.log(props.BalanceInfos.map((val) => val.sum));
 
 const option = ref({
   xAxis: {
@@ -78,9 +75,7 @@ const option = ref({
         ]),
       },
       lineStyle: {
-        normal: {
-          width: 7,
-        },
+          width: 7
       },
       grid: {
         left: 10,
@@ -101,8 +96,5 @@ watch(props.BalanceInfos, (vals) => {
 </script>
 
 <style scoped>
-.chart {
-  width: 100%;
-  height: 300px;
-}
+
 </style>
