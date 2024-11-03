@@ -1,5 +1,6 @@
 <template>
   <ion-page>
+    <PageHeader name="Sugn up" :canGoBack="true"/>
     <ion-content>
       <div
         class="bg-surface-50 dark:bg-surface-950 px-5 py-10 md:px-12 lg:px-20 h-full"
@@ -117,6 +118,7 @@ import InputText from "primevue/inputtext";
 import InputGroup from "primevue/inputgroup";
 import InputGroupAddon from "primevue/inputgroupaddon";
 import Divider from "primevue/divider";
+import PageHeader from "@/components/PageHeader.vue";
 
 import Password from "primevue/password";
 

@@ -1,5 +1,6 @@
 <template>
   <ion-page>
+    <PageHeader name="Sign in"/>
     <ion-content>
       <div
         class="bg-surface-50 dark:bg-surface-950 px-5 py-10 md:px-12 lg:px-20 h-full"
@@ -33,7 +34,7 @@
             <RouterLink
               to="/signup"
               class="font-medium underline ml-2 text-primary text-right cursor-pointer"
-              >Create today!</RouterLink
+              >Create!</RouterLink
             >
           </div>
 
@@ -86,11 +87,11 @@
                 />
                 <label for="rememberme1">Remember me</label>
               </div>
-              <RouterLink
+              <!--<RouterLink
                 to="/restore"
                 class="font-medium underline ml-2 text-primary text-right cursor-pointer"
                 >Forgot password?</RouterLink
-              >
+              >-->
             </div>
 
             <RouterLink
@@ -124,6 +125,7 @@ import Divider from "primevue/divider";
 import Password from "primevue/password";
 
 import { ref, watch } from "vue";
+import PageHeader from "@/components/PageHeader.vue";
 
 const checked1 = ref(true);
 const password = ref<string>("");
