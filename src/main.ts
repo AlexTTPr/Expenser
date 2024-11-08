@@ -63,7 +63,7 @@ const MyPreset = definePreset(Aura, {
 
 const app = createApp(App)
   .use(IonicVue)
-  .use(router)
+  .use(router)  
   .use(i18n)
   .use(PrimeVue, {
     theme: {

@@ -6,6 +6,8 @@ import BalanceChart from '@/components/charts/BalanceChart.vue';
 import BalanceInfo from '@/classes/BalanceInfo';
 import Button from 'primevue/button';
 import TransactionCard from '@/components/TransactionCard.vue';
+import Avatar from 'primevue/avatar';
+import Select from 'primevue/select';
 
 const time = ref();
 
@@ -27,19 +29,54 @@ for(let i = 0; i < 12; i++){
 
 <template>
   <ion-page>
-    <ion-content :fullscreen="true">
-      <ion-title>Home Page</ion-title>
-      <DatePicker v-model="time" id="datepicker-12h" showTime hourFormat="24" fluid />
+    <ion-content>
+      <ion-header class="flex justify-between items-center py-1 px-3">
+        <RouterLink to="/signin">
+          <Avatar icon="pi pi-user" size="normal" shape="circle"></Avatar>
+        </RouterLink>
+        <Select/>
+        <i class="pi pi-bell"/>
+      </ion-header>
 
-      <Button @click="click" />
+      <div class="flex flex-col items-center my-3">
+        <span class="text-sm">Баланс</span>
+        <span class="text-5xl">$9400</span>
 
-      <TransactionCard/>
+        <div class="flex flex-row justify-between space-x-1">
 
-      <!--<div class="card">
-        <Chart type="line" :data="chartData" :options="chartOptions"/>
-      </div>-->
+          <div class="flex flex-row justify-between bg-green-500 rounded-3xl p-3 h-20">
+            <div class="bg-white aspect-square flex items-center justify-center rounded-2xl mr-3">
+              <i class="pi pi-sort-down-fill text-green-500 !text-4xl"/>
+            </div>
+            <div class="flex flex-col justify-center">
+              <span class="">Доходы</span>
+              <span class="text-3xl">$5000</span>
+            </div>
+          </div>
 
-      <BalanceChart :BalanceInfos="values"/>
+          <div class="flex flex-row justify-between bg-red-500 rounded-3xl p-3 h-20">
+            <div class="bg-white aspect-square flex items-center justify-center rounded-2xl mr-3">
+              <i class="pi pi-sort-up-fill text-red-500 !text-4xl"/>
+            </div>
+            <div class="flex flex-col justify-center">
+              <span class="">Расходы</span>
+              <span class="text-3xl">$1200</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div>
+        <span class="text-xl m-3">График баланса</span>
+        <Button @click="click">Add/Remove value</Button>
+        <BalanceChart :BalanceInfos="values"/>
+      </div>
+
+      <div>
+        <span class="text-xl m-3">Последние транзакции</span>
+        <TransactionCard/>
+      </div>
     </ion-content>
   </ion-page>
 </template>

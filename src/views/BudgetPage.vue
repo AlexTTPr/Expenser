@@ -1,19 +1,23 @@
 <script setup lang="ts">
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/vue';
+import {
+  IonContent,
+  IonHeader,
+  IonPage,
+  IonTitle,
+  IonToolbar,
+} from "@ionic/vue";
 
+import BudgetGoal from "@/components/BudgetGoal.vue";
+import Button from "primevue/button";
 </script>
 
 <template>
-    <ion-page>
-        <ion-content :fullscreen="true">
-            <ion-title>Budget page</ion-title>
-            
-            <div>
-
-            </div>
-            <div>
-                
-            </div>
-        </ion-content>
-    </ion-page>
+  <ion-page>
+    <ion-content>
+      <BudgetGoal />
+      <div class="flex items-center justify-center">
+        <Button class="w-[15rem]">Добавить цель</Button>
+      </div>
+    </ion-content>
+  </ion-page>
 </template>

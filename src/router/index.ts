@@ -19,7 +19,7 @@ const routes: Array<RouteRecordRaw> = [
       },
       {
         path: 'budget',
-        redirect: '/signin'
+        component: () => import('@/views/BudgetPage.vue')
       },
       {
         path: 'home',
